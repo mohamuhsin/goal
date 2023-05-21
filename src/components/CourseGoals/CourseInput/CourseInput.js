@@ -8,6 +8,9 @@ const CourseInput = (props) => {
   const [isValid, setIsValid] = useState(true);
 
   const goalInputChangeHandler = (event) => {
+  if(event.target.value.trim().length > 0) {
+    setIsValid(true);
+  }
     setEnteredValue(event.target.value);
   };
 
@@ -23,10 +26,10 @@ const CourseInput = (props) => {
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
-        <label style={{ color: !isValid ? "red" : "#ccc" }}>Course Goal</label>
+        <label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label>
         <input
           style={{
-            borderColor: !isValid ? "red" : "black",
+            borderColor: !isValid ? "red" : "#ccc",
             backgroundColor: !isValid ? "salmon" : "transparent",
           }}
           type="text"
